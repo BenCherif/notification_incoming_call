@@ -1,0 +1,39 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="co.strolink.notification_incoming_call">
+
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application>
+
+        <activity
+            android:name="co.strolink.notification_incoming_call.CallkitIncomingActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:showOnLockScreen="true"
+            android:launchMode="singleInstance"
+            android:exported="true"
+            android:theme="@style/CallkitIncomingTheme">
+            <intent-filter>
+                <action android:name="co.strolink.notification_incoming_call.actionCallIncoming" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="co.strolink.notification_incoming_call.CallkitIncomingBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="co.strolink.notification_incoming_call.actionCallIncoming" />
+                <action android:name="co.strolink.notification_incoming_call.actionCallAccept" />
+                <action android:name="co.strolink.notification_incoming_call.actionCallDecline" />
+                <action android:name="co.strolink.notification_incoming_call.actionCallEnded" />
+                <action android:name="co.strolink.notification_incoming_call.actionCallTimeout" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
