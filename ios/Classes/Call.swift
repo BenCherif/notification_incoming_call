@@ -152,7 +152,7 @@ public class Data {
         self.appName = args["appName"] as? String ?? "Callkit"
         self.handle = args["handle"] as? String ?? ""
         self.avatar = args["avatar"] as? String ?? ""
-        self.isGroup = args["isGroup"] as? Bool ?? ""
+        self.isGroup = args["isGroup"] as? Bool ?? false
         self.type = args["type"] as? Int ?? 0
         self.duration = args["duration"] as? Int ?? 30000
         self.extra = args["extra"] as? [String: Any?] ?? [:]
